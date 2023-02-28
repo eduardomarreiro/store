@@ -24,11 +24,13 @@
         <ng-container matColumnDef="quantity">
             <th mat-header-cell *matHeaderCellDef>Quantity</th>
             <td mat-cell *matCellDef="let element">
-                <button mat-icon-button>
+                <button mat-icon-button
+                    (click)="onRemoveQuantity(element)">
                     <mat-icon>remove</mat-icon>
                 </button>
                 <span>{{element.quantity}}</span>
-                <button mat-icon-button>
+                <button mat-icon-button
+                    (click)="onAddQuantity(element)">
                     <mat-icon>add</mat-icon>
                 </button>
             </td>
@@ -45,13 +47,15 @@
         </ng-container>
         <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef>
-                <button mat-raised-button color="warn" class="float-right">
-                    clear all
+                <button mat-raised-button color="warn" class="float-right" 
+                (click)="onClearCart()">
+                    Clear all
                 </button>
             </th>
             <td mat-cell *matCellDef="let element">
                 <button mat-mini-fab color="warn" 
-                class="float-right">
+                class="float-right"
+                (click)="onRemoveFromCart(element)">
                     <mat-icon>delete</mat-icon>
                 </button>
             </td>

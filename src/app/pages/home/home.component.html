@@ -1,6 +1,6 @@
 <mat-drawer-container
   [autosize]="true"
-  class="min-h-full max-w-7xl mx-auto border-x"
+  class="min-h-full max-w-7x1 mx-auto border-x"
 >
   <mat-drawer mode="side" opened class="p-6">
     <app-filters (showCategory)="onShowCategory($event)"></app-filters>
@@ -15,7 +15,7 @@
       gutterSize="16"
       [cols]="cols"
       [rowHeight]="rowHeight">
-      <mat-grid-tile *ngFor="let product of products">        
+      <mat-grid-tile *ngFor="let product of products" (click)="onDetail(product.id)" style="cursor: pointer;">        
         <app-product-box 
         [product] = "product"
         (addToCart)="onAddToCart($event)" 

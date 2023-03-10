@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 import { CartService } from 'src/app/services/cart.service';
 import { StoreService } from 'src/app/services/store.service';
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   count = '12';
   productsSubscription: Subscription | undefined
 
-  constructor(private cartService: CartService, private storeService : StoreService) { }
+  constructor(private cartService: CartService, private storeService : StoreService, private router: Router) { }
 
   ngOnInit(): void {
     this.getProducts();
@@ -54,6 +55,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   onItemsCountChange(newcount : number) : void {
     this.count = newcount.toString();
     this.getProducts();
+  }
+
+  onDetail(id: number): void{
+    this.router.navigate([`/details/${id}`]);
   }
 
   onSortChange(newSort: string) : void {

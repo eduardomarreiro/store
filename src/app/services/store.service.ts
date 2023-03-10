@@ -25,4 +25,10 @@ export class StoreService {
       `${STORE_BASE_URL}/products/categories`
     )
   }
+
+  getProductById(id: number) : Observable<Product> {
+    return this.httpClient.get<Product>(
+      `${STORE_BASE_URL}/products/${id}`
+    )
+  }
 }

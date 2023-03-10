@@ -1,0 +1,24 @@
+<div class="flex flex-row w-1/3">
+<mat-card *ngIf="product">
+    <div>
+      <img
+        class="mb-1 mx-auto"
+        
+        [src]="product.image" width="200"
+        />
+      <div class="w-1/2">
+        <div>
+            <h5>{{product.category}}</h5>
+            <p class="truncate hover:whitespace-normal">{{product.title}}</p>
+        </div>
+        <div class="flex justify-between w-1/2">
+          <span class="text-red-400">{{ product.price | currency }}</span>
+          <button>
+            <mat-icon class="text-gray-500">shopping_cart</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+<mat-card></mat-card>
+</div>
